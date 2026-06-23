@@ -5,7 +5,8 @@ A 4-Floor Elevator Controller designed in Verilog HDL, implemented using a Moore
 
 This project helped strengthen my understanding of sequential circuits, FSM design and clocking mechanisms.
 
-## 2. Features
+## 2. Features & Assumptions
+### Features
 - Moore FSM-based control architecture
 - Supports elevator operation across 4 floors (0–3)
 - Four operating states: `IDLE`, `MOVING_UP`, `MOVING_DOWN`, and `OPEN_DOOR`
@@ -14,6 +15,11 @@ This project helped strengthen my understanding of sequential circuits, FSM desi
 - Current floor tracking and target floor comparison
 - Emergency handling through asynchronous reset
 - Verified using a dedicated testbench and waveform analysis in Xilinx Vivado
+
+### Assumptions
+- The controller handles one floor request at a time.
+- Floor requests are not queued.
+- The passenger is assumed to be inside the elevator before a floor request is generated.
 
 ## 3. Signals and Registers
 This section describes the input, output, and internal registers used in the elevator controller.
@@ -51,7 +57,7 @@ To simulate realistic elevator behavior, a delay of three clock cycles is introd
 Since the controller follows the Moore FSM model, the output signals depend only on the current state and are independent of the input signals.
 
 ### State Diagram
-![State Diagram](./doc/state.png)
+![State Diagram](./doc/state_diagram.png)
 
 ## 5. Implementation and Results
 ### Waveform Analysis
@@ -74,6 +80,7 @@ Since the controller follows the Moore FSM model, the output signals depend only
 ├── tb/
 │   └── Elevator_controller_4_floors_tb.v
 ├── doc/
+│   ├── state_diagram.png
 │   ├── waveform.png
 │   ├── console.png
 │   ├── schematic_zoomed.png
@@ -84,6 +91,7 @@ Since the controller follows the Moore FSM model, the output signals depend only
 ## 7. Key Learnings
 - Understood the differences between Moore and Mealy FSMs and practically implemented a Moore FSM design.
 - Learned how to divide an FSM design into sequential, combinational, and output logic blocks.
+- Understood the behavioral difference between synchronous and asynchronous reset.
 - Gained practical experience in implementing timing delays using counters.
 - Understood the importance of internal registers for storing information independently of external inputs.
 - Improved debugging skills through the analysis of console outputs, waveforms, and RTL schematics.
