@@ -93,6 +93,7 @@ Since the controller follows the Moore FSM model, the output signals depend only
 - Learned how to divide an FSM design into sequential, combinational, and output logic blocks.
 - Understood the behavioral difference between synchronous and asynchronous reset.
 - Gained practical experience in implementing timing delays using counters.
+- Understood the importance of non-blocking assignments (`<=`) in sequential logic to ensure simultaneous register updates and avoid unintended behavior.
 - Understood the importance of internal registers for storing information independently of external inputs.
 - Improved debugging skills through the analysis of console outputs, waveforms, and RTL schematics.
 
